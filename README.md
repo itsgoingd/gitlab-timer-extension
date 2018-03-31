@@ -1,9 +1,9 @@
-## GitLab Timer
+## GitLab Timer Extension
 
 a simple timer for gitlab issues
 
 <p align="center">
-	<img src="http://abyss.shadowfall.eu/github/gitlab-timer.png">
+	<img src="http://abyss.shadowfall.eu/github/gitlab-timer.png" width="586px">
 </p>
 
 Extends the gitlab time tracking UI with a simple timer:
