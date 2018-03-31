@@ -40,7 +40,8 @@ class GitLabTimer {
 
 	stop (commit) {
 		if (commit) {
-			document.querySelector('#note-body').value = `/spend ${this.spentTime(true)}`
+			let commitTime = this.formatTime(Math.ceil(this.spentTime() / 60) * 60)
+			document.querySelector('#note-body').value = `/spend ${commitTime}`
 			document.querySelector('#note-body').dispatchEvent(new Event('change'))
 			setTimeout(() => { document.querySelector('.js-comment-submit-button').click() }, 50)
 		}
@@ -68,7 +69,8 @@ class GitLabTimer {
 	}
 
 	spentTime (formatted) {
-		let difference = Math.floor(((new Date()).getTime() - this.startedAt.getTime()) / 1000)
+		let startPoint = this.pausedAt ? new Date((new Date) - (this.pausedAt - this.startedAt)) : this.startedAt
+		let difference = Math.floor(((new Date()).getTime() - startPoint.getTime()) / 1000)
 
 		return formatted ? this.formatTime(difference) : difference
 	}
