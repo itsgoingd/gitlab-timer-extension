@@ -1,0 +1,23 @@
+{
+	"manifest_version": 2,
+	"name": "GitLab Timer",
+	"version": "0.1.0",
+
+	"description": "a simple timer for gitlab issues",
+	"homepage_url": "https://github.com/itsgoingd/gitlab-timer",
+
+	"icons": {
+		"48": "images/logo-48x48.png",
+		"128": "images/logo-128x128.png"
+	},
+
+	"background": {
+		"scripts": [ "app/background.js" ]
+	},
+
+	"permissions": [
+		"tabs",
+		"http://*/",
+		"https://*/"
+	]
+}

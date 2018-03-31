@@ -1,0 +1,7 @@
+{
+  "name": "gitlab-timer",
+  "version": "0.1.0",
+  "description": "a simple timer for gitlab issues",
+  "scripts": {},
+  "devDependencies": {}
+}
