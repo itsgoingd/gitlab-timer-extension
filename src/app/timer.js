@@ -25,6 +25,7 @@ class GitLabTimer {
 
 		this.update = setInterval(() => { this.tick() }, 1000)
 
+		this.tick()
 		this.save()
 	}
 
@@ -156,13 +157,12 @@ class GitLabTimer {
 				.gitlab-timer-commit, .gitlab-timer-reset { cursor: pointer; font-size: 17px; }
 				.gitlab-timer-button { margin-right: 5px; }
 				.gitlab-timer-output { margin: 0 5px; }
-				.gitlab-timer-icon-clock:before { content: "\\f017"; }
 			</style>
 			<span class="gitlab-timer">
-				<span class="fa fa-question-circle gitlab-timer-icon-clock gitlab-timer-start"></span>
+				<span class="fa fa-clock-o gitlab-timer-start" title="Start / pause"></span>
 				<span class="gitlab-timer-output">0m 0s</span>
-				<span class="fa fa-check-circle gitlab-timer-commit"></span>
-				<span class="fa fa-refresh gitlab-timer-reset"></span>
+				<span class="fa fa-pencil-square gitlab-timer-commit" title="Add"></span>
+				<span class="fa fa-minus-square gitlab-timer-reset" title="Reset"></span>
 			</span>
 		`
 	}
@@ -189,7 +189,7 @@ class GitLabTimer {
 
 let gitlabTimerContainer = document.createElement('div')
 let gitlabTimerButton = document.createElement('span')
-gitlabTimerButton.classList.add('fa', 'fa-question-circle', 'gitlab-timer-icon-clock', 'gitlab-timer-button')
+gitlabTimerButton.classList.add('fa', 'fa-clock-o', 'gitlab-timer-button')
 
 document.querySelector('.time-tracking-component-wrap .help-button').prepend(gitlabTimerButton)
 document.querySelector('.time-tracking-content').append(gitlabTimerContainer)
