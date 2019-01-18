@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "GitLab Timer",
-	"version": "0.1.1",
+	"version": "0.1.2",
 
 	"description": "A simple timer for gitlab issues",
 	"homepage_url": "https://github.com/itsgoingd/gitlab-timer",
