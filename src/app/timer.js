@@ -7,6 +7,7 @@ class GitLabTimer {
 		this.bindEvents()
 
 		this.output = this.container.querySelector('.gitlab-timer-output')
+		this.startPauseButton = this.container.querySelector('.gitlab-timer-start')
 
 		this.shown = false
 		this.running = false
@@ -17,6 +18,8 @@ class GitLabTimer {
 	start () {
 		this.running = true
 		this.startedAt = this.startedAt || new Date
+
+		this.startPauseButton.classList.replace('fa-play', 'fa-pause')
 
 		if (this.pausedAt) {
 			this.startedAt = new Date((new Date) - (this.pausedAt - this.startedAt))
@@ -32,6 +35,8 @@ class GitLabTimer {
 	pause () {
 		this.running = false
 		this.pausedAt = new Date()
+
+		this.startPauseButton.classList.replace('fa-pause', 'fa-play')
 
 		clearInterval(this.update)
 
@@ -155,16 +160,20 @@ class GitLabTimer {
 				}
 				.gitlab-timer > * { vertical-align: middle; }
 				.gitlab-timer-shown { display: block !important; }
-				.gitlab-timer-start { cursor: pointer; font-size: 30px; }
-				.gitlab-timer-commit, .gitlab-timer-reset { cursor: pointer; font-size: 17px; }
+				.gitlab-timer-start { color: #000F3D; cursor: pointer; font-size: 30px; }
+				.gitlab-timer-commit, .gitlab-timer-reset { cursor: pointer; font-size: 20px; margin-right: 8px }
+				.gitlab-timer-commit { color: #007F5D; }
+				.gitlab-timer-reset { color: #D13239 }
 				.gitlab-timer-button { margin-right: 5px; }
-				.gitlab-timer-output { margin: 0 5px; }
+				.gitlab-timer-output { color: #717073; margin: 0 5px 10px; font-size: 18px; }
 			</style>
 			<span class="gitlab-timer">
-				<span class="fa fa-clock-o gitlab-timer-start" title="Start / pause"></span>
-				<span class="gitlab-timer-output">0m 0s</span>
-				<span class="fa fa-pencil-square gitlab-timer-commit" title="Add"></span>
-				<span class="fa fa-minus-square gitlab-timer-reset" title="Reset"></span>
+				<p class="fa fa-play gitlab-timer-start" title="Start / Pause"></p>
+				<p class="gitlab-timer-output">0m 0s</p>
+				<p class="gitlab-timer-actions-buttons">
+					<span class="fa fa-plus-square gitlab-timer-commit" title="Add time"></span>
+					<span class="fa fa-undo gitlab-timer-reset" title="Reset time"></span>
+				</p>
 			</span>
 		`
 	}
